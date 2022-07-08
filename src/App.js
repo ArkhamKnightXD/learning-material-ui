@@ -2,11 +2,13 @@ import Sidebar from "./components/Sidebar";
 import Rightbar from "./components/Rightbar";
 import Feed from "./components/Feed";
 import {Box, Stack} from "@mui/material";
+import Navbar from "./components/Navbar";
 
 function App() {
     return (
         //El componente box sirve de contenedor de elementos, todos los elementos dentro de esto estaran dentro de una caja
         <Box>
+            <Navbar/>
 
             {/*El stack es ideal si tenemos varios elementos y queremos agruparlo uno al lado de otro o arriba
             Con la direction especificamos si estaran de arriba para abajo o de izq a derecha y con spacing le damos espacio

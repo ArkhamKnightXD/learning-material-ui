@@ -1,4 +1,3 @@
-import React from 'react';
 import {Button, styled, Typography} from "@mui/material";
 import {Add, Settings} from "@mui/icons-material";
 

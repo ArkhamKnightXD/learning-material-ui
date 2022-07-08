@@ -9,7 +9,7 @@ export const theme = createTheme({
 
     //Con palette indicamos las distintas paletas de colores que tendra nuestra app
     palette:{
-        //Entonces cuando en un boton indiquemos que su color es primary o seconday, tomara estos colores
+        //Entonces cuando en un boton indiquemos que su color es primary o secondary, tomara estos colores
         primary:{
             main: "#1760a5",
             light: "skyblue"
