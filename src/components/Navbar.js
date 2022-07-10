@@ -1,6 +1,7 @@
-import {AppBar, Avatar, Badge, Box, InputBase, styled, Toolbar, Typography} from "@mui/material";
+import {AppBar, Avatar, Badge, Box, InputBase, Menu, MenuItem, styled, Toolbar, Typography} from "@mui/material";
 import PetsIcon from '@mui/icons-material/Pets';
 import {Mail, Notifications} from "@mui/icons-material";
+import {useState} from "react";
 
 //Con esta toolbar el contenido de mi navbar siempre estara separado si en el navbar hay 3 elementos, los 3 estaran separados
 const StyledToolbar = styled(Toolbar)({
@@ -23,6 +24,7 @@ const Icons = styled(Box)(({theme}) => ({
 
     //Con agregar display flex me aseguro que si tengo varios elementos uno quede del lado de otro y nunca uno arriba de otro
     // display: 'flex',
+    //Con display: none oculto el elemento
     display: 'none',
 
     //Con la propiedad gap establecemos una distancia de 20 px entre cada elemento incluidos en el tag de icons
@@ -40,13 +42,29 @@ const UserBox = styled(Box)(({theme}) => ({
     display: 'none',
     gap: "10px",
     alignItems: "center",
-    //Este elemento se mostrara cuando la pantalla sea de 600 para abajo
+    //Este elemento se mostrara cuando la pantalla sea de 600 para abajo para abajo
     [theme.breakpoints.down("sm")]:{
         display: 'flex',
     }
 }));
 
 const Navbar = () => {
+
+    const [isOpen, setIsOpen] = useState(false);
+
+
+    const handleOpenMenu = (event) => {
+
+        setIsOpen(true);
+    };
+
+
+    const handleCloseMenu = () => {
+
+        setIsOpen(false);
+    };
+
+
     return (
 
         //Los elementos principales que conforman un appbar son el appbar y el toolbar, con esos 2 elementos
@@ -77,14 +95,36 @@ const Navbar = () => {
                     </Badge>
 
                     {/*Avatar es el elemento encargado de mostrar la foto del usuario o nombre */}
-                    <Avatar sx={{width: 30, height: 30 }} src="https://images.pexels.com/photos/12640959/pexels-photo-12640959.jpeg?cs=srgb&dl=pexels-ethan-brooke-12640959.jpg&fm=jpg"/>
+                    <Avatar onClick={handleOpenMenu} sx={{width: 30, height: 30 }} src="https://images.pexels.com/photos/12640959/pexels-photo-12640959.jpeg?cs=srgb&dl=pexels-ethan-brooke-12640959.jpg&fm=jpg"/>
                 </Icons>
-                <UserBox>
+                <UserBox onClick={handleOpenMenu}>
                     <Avatar sx={{width: 30, height: 30 }} src="https://images.pexels.com/photos/12640959/pexels-photo-12640959.jpeg?cs=srgb&dl=pexels-ethan-brooke-12640959.jpg&fm=jpg"/>
                     <Typography variant="span">Knight</Typography>
                 </UserBox>
 
             </StyledToolbar>
+
+            <Menu
+                id="demo-positioned-menu"
+                aria-labelledby="demo-positioned-button"
+                open={isOpen}
+                onClose={handleCloseMenu}
+                //Todo pide un elemento anchorEl, entender porque lo pide y para que funciona
+                // anchorEl={anchorEl}
+
+                anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                }}
+            >
+                <MenuItem>Profile</MenuItem>
+                <MenuItem>My account</MenuItem>
+                <MenuItem>Logout</MenuItem>
+            </Menu>
         </AppBar>
     );
 };
