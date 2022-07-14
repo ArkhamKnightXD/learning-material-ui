@@ -1,5 +1,6 @@
 import {Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Switch} from "@mui/material";
-import {AccountBox, Groups, Home, Inbox, ModeNight, Person, Settings, Storefront, Subject} from "@mui/icons-material";
+import {AccountBox, Groups, Home, ModeNight, Person, Settings, Storefront, Subject} from "@mui/icons-material";
+import PropTypes from "prop-types";
 
 //Uso de los breakpoint de material ui xs quiere decir de 0 a 600 px y sm de 600 a 900
 //Each breakpoint (a key) matches with a fixed screen width (a value):
@@ -10,7 +11,7 @@ import {AccountBox, Groups, Home, Inbox, ModeNight, Person, Settings, Storefront
 //     lg, large: 1200px
 //     xl, extra-large: 1536px
 
-const Sidebar = () => {
+const Sidebar = ({setMode, mode}) => {
     return (
         //Con los elementos box podemos utilizar propiedades css directamente, sin necesidad de utilizar sx o style
         //Con el elemento display de css podemos modificar el comportamiendo visual de un elemento
@@ -93,7 +94,8 @@ const Sidebar = () => {
                     </ListItem>
 
                     <ListItem disablePadding>
-                        <ListItemButton component="a" href="#profile">
+                        <ListItemButton onChange={mode === "light" ?  () => setMode("dark")
+                            : () => setMode("light")} component="a" href="#profile">
                             <ListItemIcon>
                                 <ModeNight/>
                             </ListItemIcon>
@@ -106,5 +108,12 @@ const Sidebar = () => {
         </Box>
     );
 };
+
+Sidebar.propTypes = {
+
+    setMode: PropTypes.func.isRequired,
+    mode: PropTypes.string.isRequired
+};
+
 
 export default Sidebar;

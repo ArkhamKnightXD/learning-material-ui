@@ -1,14 +1,5 @@
-import {
-    Avatar,
-    AvatarGroup,
-    Box, Divider,
-    ImageList,
-    ImageListItem,
-    List,
-    ListItem,
-    ListItemAvatar, ListItemText,
-    Typography
-} from "@mui/material";
+import {Avatar, AvatarGroup, Box, Divider, ImageList,ImageListItem, List,
+    ListItem, ListItemAvatar, ListItemText, Typography} from "@mui/material";
 
 //Para distinguir el espacio que tienen cada uno de nuestros contenedores, inicialmente siempre es bueno darle
 // colores distintivos a cada uno de nuestros elementos, por ejemplo a el rightbar le agregamos un lightcoral al inicio

@@ -1,19 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {
-    Avatar,
-    Card,
-    CardActions,
-    CardContent,
-    CardHeader,
-    CardMedia,
-    Checkbox,
-    IconButton,
-    Typography
-} from "@mui/material";
+import {Avatar, Card, CardActions, CardContent, CardHeader,
+    CardMedia, Checkbox, IconButton, Typography} from "@mui/material";
 import {Favorite, FavoriteBorder, MoreVert, Share} from "@mui/icons-material";
 
-const Post = props => {
+const Post = () => {
     return (
         <Card sx={{marginTop: 5}}>
             <CardHeader
@@ -55,10 +44,6 @@ const Post = props => {
         </Card>
 
     );
-};
-
-Post.propTypes = {
-
 };
 
 export default Post;
